@@ -1,0 +1,33 @@
+[
+  {
+    "id": "gift-over-threshold",
+    "request": "An employee reports receiving a gift valued at $120.",
+    "policy_evidence": [
+      {
+        "policy_id": "GIFTS-01",
+        "text": "Gifts valued over $100 require review."
+      }
+    ],
+    "expected_route": "review",
+    "expected_clarification": null
+  },
+  {
+    "id": "gift-amount-missing",
+    "request": "An employee reports receiving a gift of unknown value.",
+    "policy_evidence": [
+      {
+        "policy_id": "GIFTS-01",
+        "text": "Gifts valued over $100 require review."
+      }
+    ],
+    "expected_route": "request_clarification",
+    "expected_clarification": "What is the monetary value of the gift?"
+  },
+  {
+    "id": "gift-policy-missing",
+    "request": "An employee reports receiving a gift valued at $120.",
+    "policy_evidence": [],
+    "expected_route": "manual_review",
+    "expected_clarification": "What policy applies to this gift?"
+  }
+]
